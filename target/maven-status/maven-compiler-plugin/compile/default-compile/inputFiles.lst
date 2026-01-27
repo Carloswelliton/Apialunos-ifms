@@ -1,0 +1,11 @@
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/ApialunosApplication.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/application/usecase/BuscarAlunoUseCase.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/application/usecase/ListarAlunosUseCase.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/application/usecase/SalvarAlunoUseCase.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/domain/exception/AlunoNaoEncontradoExecption.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/domain/exception/PermissaoNegadaException.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/domain/model/AlunoModel.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/domain/repository/AlunoRepository.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/domain/security/UsuarioAutenticadoService.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/infrastructure/persistence/entity/AlunoEntity.java
+/home/carlos/Projetos/Java-Spring/APIAlunos/src/main/java/br/edu/ifms/interfaces/controller/AlunoController.java
