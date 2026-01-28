@@ -15,12 +15,6 @@ public class AlunoRepositoryJpa implements AlunoRepository {
   }
 
   @Override
-  public Optional<AlunoModel> findByMatricula(String matricula) {
-    // TODO Auto-generated method stub
-    return Optional.empty();
-  }
-
-  @Override
   public List<AlunoModel> listar() {
     // TODO Auto-generated method stub
     return null;

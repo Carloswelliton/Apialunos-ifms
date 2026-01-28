@@ -11,8 +11,6 @@ public interface AlunoRepository {
 
   List<AlunoModel> listar();
 
-  Optional<AlunoModel> findByMatricula(String matricula);
-
   Optional<AlunoModel> findByEmailInstitucional(String emailInstitucional);
 
   List<AlunoModel> listarPorCurso(String curso);

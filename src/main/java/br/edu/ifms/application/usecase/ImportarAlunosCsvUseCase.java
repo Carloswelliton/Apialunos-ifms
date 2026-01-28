@@ -18,8 +18,8 @@ public class ImportarAlunosCsvUseCase {
     this.repository = repository;
   }
 
-  public void executar(String pathFile) {
-    List<AlunoModel> alunos = csvReader.ler(pathFile);
-    repository.salvar(alunos);
-  }
+  // public void executar(String pathFile) {
+  // List<AlunoModel> alunos = csvReader.ler(pathFile);
+  // repository.salvar(alunos);
+  // }
 }

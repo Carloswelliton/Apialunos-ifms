@@ -15,12 +15,12 @@ public class BuscarAlunoUseCase {
     this.alunoRepository = alunoRepository;
   }
 
-  public AlunoModel buscarPorMatricula(String matricula) {
+  public AlunoModel buscarPorRmail(String emailInstitucional) {
 
-    Optional<AlunoModel> alunoOpt = alunoRepository.findByMatricula(matricula);
+    Optional<AlunoModel> alunoOpt = alunoRepository.findByEmailInstitucional(emailInstitucional);
 
     if (alunoOpt.isEmpty()) {
-      throw new AlunoNaoEncontradoExecption("Matricula do estudante não encontrado");
+      throw new AlunoNaoEncontradoExecption("Email do estudante não encontrado");
     }
 
     AlunoModel aluno = alunoOpt.get();

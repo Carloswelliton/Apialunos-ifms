@@ -75,6 +75,7 @@ public class AlunoModel {
 
   public String getEmailInstitucional() {
     return emailInstitucional;
+
   }
 
   public String getPeriodoEntrada() {
