@@ -1,5 +1,5 @@
+br/edu/ifms/domain/repository/AlunoRepository.class
 br/edu/ifms/domain/model/AlunoModel.class
 br/edu/ifms/application/usecase/BuscarAlunoUseCase.class
 br/edu/ifms/domain/security/UsuarioAutenticadoService.class
-br/edu/ifms/domain/repository/AlunoRepository.class
 br/edu/ifms/ApialunosApplication.class

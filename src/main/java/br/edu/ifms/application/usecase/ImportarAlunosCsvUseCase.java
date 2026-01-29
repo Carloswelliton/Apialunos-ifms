@@ -1,25 +1,36 @@
 package br.edu.ifms.application.usecase;
 
+import java.io.InputStream;
 import java.util.List;
 
+import br.edu.ifms.domain.exception.AlunoJaCadastradoException;
 import br.edu.ifms.domain.model.AlunoModel;
 import br.edu.ifms.domain.repository.AlunoRepository;
 import br.edu.ifms.domain.service.AlunoCsvReader;
 
 public class ImportarAlunosCsvUseCase {
 
-  private final AlunoCsvReader csvReader;
-  private final AlunoRepository repository;
+  private AlunoRepository repository;
+  private AlunoCsvReader reader;
 
-  public ImportarAlunosCsvUseCase(
-      AlunoCsvReader csvReader,
-      AlunoRepository repository) {
-    this.csvReader = csvReader;
+  public ImportarAlunosCsvUseCase(AlunoRepository repository, AlunoCsvReader reader) {
     this.repository = repository;
+    this.reader = reader;
   }
 
-  // public void executar(String pathFile) {
-  // List<AlunoModel> alunos = csvReader.ler(pathFile);
-  // repository.salvar(alunos);
-  // }
+  public void execute(InputStream dados) {
+    List<AlunoModel> alunos = reader.ler(dados);
+
+    for (AlunoModel alunoModel : alunos) {
+      try {
+        if (repository.findByEmailInstitucional(alunoModel.getEmailInstitucional()).isEmpty()) {
+          repository.salvar(alunoModel);
+        } else {
+          throw new AlunoJaCadastradoException("Email: " + alunoModel.getEmailInstitucional() + " já cadastrado");
+        }
+      } catch (Exception e) {
+        throw new RuntimeException("Não foi possível ler a fonte de dados");
+      }
+    }
+  }
 }

@@ -3,6 +3,7 @@
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/application/usecase/ImportarAlunosCsvUseCase.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/application/usecase/ListarAlunosUseCase.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/application/usecase/SalvarAlunoUseCase.java
+/home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/domain/exception/AlunoJaCadastradoException.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/domain/exception/AlunoNaoEncontradoExecption.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/domain/exception/PermissaoNegadaException.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/domain/model/AlunoModel.java
