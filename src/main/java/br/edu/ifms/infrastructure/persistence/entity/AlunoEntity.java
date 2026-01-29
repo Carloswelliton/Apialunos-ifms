@@ -1,5 +1,6 @@
 package br.edu.ifms.infrastructure.persistence.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,11 +25,13 @@ public class AlunoEntity {
   private String campus;
   private String polo;
   private String coordenacao;
+  @Column(nullable = false)
   private String curso;
   private String nomeEstudante;
   private String situacao;
   private Integer idade;
   private String sexo;
+  @Column(nullable = false)
   private String emailInstitucional;
   private String periodoEntrada;
   private String turno;
