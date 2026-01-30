@@ -14,4 +14,6 @@ public interface AlunoRepository {
   Optional<AlunoModel> findByEmailInstitucional(String emailInstitucional);
 
   List<AlunoModel> listarPorCurso(String curso);
+
+  boolean existePorEmail(String emailInstitucional);
 }

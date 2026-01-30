@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.edu.ifms.infrastructure.persistence.entity.AlunoEntity;
 
 public interface AlunoSpringDataRepository extends JpaRepository<AlunoEntity, Long> {
+  boolean existsByEmailInstitucional(String email);
 
 }

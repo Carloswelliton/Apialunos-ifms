@@ -31,7 +31,7 @@ public class AlunoEntity {
   private String situacao;
   private Integer idade;
   private String sexo;
-  @Column(nullable = false)
+  @Column(nullable = false, name = "email_institucional", unique = true)
   private String emailInstitucional;
   private String periodoEntrada;
   private String turno;

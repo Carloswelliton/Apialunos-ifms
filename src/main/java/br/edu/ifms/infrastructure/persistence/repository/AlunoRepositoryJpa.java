@@ -37,6 +37,11 @@ public class AlunoRepositoryJpa implements AlunoRepository {
   }
 
   @Override
+  public boolean existePorEmail(String emailInstitucional) {
+    return dataRepository.existsByEmailInstitucional(emailInstitucional);
+  }
+
+  @Override
   public AlunoModel salvar(AlunoModel alunoModel) {
     AlunoEntity alunoNovo = mapper.toEntity(alunoModel);
     AlunoEntity alunoSalvo = dataRepository.save(alunoNovo);
