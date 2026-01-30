@@ -29,6 +29,7 @@ public class ImportarAlunosCsvUseCase {
           throw new AlunoJaCadastradoException("Email: " + alunoModel.getEmailInstitucional() + " já cadastrado");
         }
       } catch (Exception e) {
+        System.out.println(e.getMessage());
         throw new RuntimeException("Não foi possível ler a fonte de dados");
       }
     }

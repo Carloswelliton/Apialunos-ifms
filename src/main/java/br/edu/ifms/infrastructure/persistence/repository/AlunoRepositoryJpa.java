@@ -9,12 +9,14 @@ import br.edu.ifms.domain.model.AlunoModel;
 import br.edu.ifms.domain.repository.AlunoRepository;
 import br.edu.ifms.infrastructure.persistence.entity.AlunoEntity;
 import br.edu.ifms.infrastructure.persistence.mapper.AlunoMapper;
+import lombok.RequiredArgsConstructor;
 
 @Repository
+@RequiredArgsConstructor
 public class AlunoRepositoryJpa implements AlunoRepository {
 
-  private AlunoSpringDataRepository dataRepository;
-  private AlunoMapper mapper;
+  private final AlunoSpringDataRepository dataRepository;
+  private final AlunoMapper mapper;
 
   @Override
   public Optional<AlunoModel> findByEmailInstitucional(String emailInstitucional) {
