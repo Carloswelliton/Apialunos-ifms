@@ -1,5 +1,17 @@
+br/edu/ifms/domain/exception/AlunoJaCadastradoException.class
+br/edu/ifms/infrastructure/persistence/entity/AlunoEntity.class
+br/edu/ifms/infrastructure/persistence/repository/AlunoSpringDataRepository.class
+br/edu/ifms/application/usecase/SalvarAlunoUseCase.class
+br/edu/ifms/application/usecase/ImportarAlunosCsvUseCase.class
+br/edu/ifms/domain/exception/AlunoNaoEncontradoExecption.class
 br/edu/ifms/domain/repository/AlunoRepository.class
+br/edu/ifms/infrastructure/persistence/repository/AlunoRepositoryJpa.class
+br/edu/ifms/infrastructure/persistence/mapper/AlunoMapper.class
 br/edu/ifms/domain/model/AlunoModel.class
 br/edu/ifms/application/usecase/BuscarAlunoUseCase.class
 br/edu/ifms/domain/security/UsuarioAutenticadoService.class
+br/edu/ifms/domain/service/AlunoCsvReader.class
+br/edu/ifms/domain/exception/PermissaoNegadaException.class
 br/edu/ifms/ApialunosApplication.class
+br/edu/ifms/infrastructure/configuration/AlunoConfig.class
+br/edu/ifms/application/usecase/ListarAlunosUseCase.class

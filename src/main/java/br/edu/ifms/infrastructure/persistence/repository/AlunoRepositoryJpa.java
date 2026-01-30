@@ -3,10 +3,18 @@ package br.edu.ifms.infrastructure.persistence.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.ifms.domain.model.AlunoModel;
 import br.edu.ifms.domain.repository.AlunoRepository;
+import br.edu.ifms.infrastructure.persistence.entity.AlunoEntity;
+import br.edu.ifms.infrastructure.persistence.mapper.AlunoMapper;
 
+@Repository
 public class AlunoRepositoryJpa implements AlunoRepository {
+
+  private AlunoSpringDataRepository dataRepository;
+  private AlunoMapper mapper;
 
   @Override
   public Optional<AlunoModel> findByEmailInstitucional(String emailInstitucional) {
@@ -28,8 +36,9 @@ public class AlunoRepositoryJpa implements AlunoRepository {
 
   @Override
   public AlunoModel salvar(AlunoModel alunoModel) {
-    // TODO Auto-generated method stub
-    return null;
+    AlunoEntity alunoNovo = mapper.toEntity(alunoModel);
+    AlunoEntity alunoSalvo = dataRepository.save(alunoNovo);
+    return mapper.toModel(alunoSalvo);
   }
 
 }
