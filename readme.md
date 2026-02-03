@@ -1,3 +1,5 @@
+``` text
+```
 br.edu.ifms
 │
 ├── domain
@@ -55,4 +57,5 @@ br.edu.ifms
 └── config
     ├── SecurityConfig.java
     └── OpenApiConfig.java
-
+```
+```
