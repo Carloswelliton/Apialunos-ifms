@@ -89,4 +89,4 @@ A API está protegida com **Basic Auth**. Para realizar requisições via Postma
 
 ---
 
-Desenvolvido com ☕ por [Seu Nome]
+Desenvolvido com ☕ por Carlos Welliton
