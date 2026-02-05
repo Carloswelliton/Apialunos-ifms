@@ -1,7 +1,10 @@
 package br.edu.ifms.infrastructure.web;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.edu.ifms.application.usecase.ImportarAlunosCsvUseCase;
+import br.edu.ifms.application.usecase.ListarAlunosUseCase;
+import br.edu.ifms.domain.model.AlunoModel;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -17,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class AlunoController {
 
   private final ImportarAlunosCsvUseCase importarAlunosCsv;
+  private final ListarAlunosUseCase listarAlunosUseCase;
 
   @PostMapping("/import")
   public ResponseEntity<String> importCsv(@RequestParam("file") MultipartFile multipartFilefile) {
@@ -32,5 +38,11 @@ public class AlunoController {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
           .body("Erro ao processar o arquivo: " + e.getMessage());
     }
+  }
+
+  @GetMapping("/find")
+  public ResponseEntity<List<AlunoModel>> listarTodos() {
+    List<AlunoModel> alunos = listarAlunosUseCase.execute();
+    return ResponseEntity.ok(alunos);
   }
 }

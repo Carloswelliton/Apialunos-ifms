@@ -26,8 +26,8 @@ public class AlunoRepositoryJpa implements AlunoRepository {
 
   @Override
   public List<AlunoModel> listar() {
-    // TODO Auto-generated method stub
-    return null;
+    List<AlunoEntity> listagem = dataRepository.findAll();
+    return listagem.stream().map(l -> mapper.toModel(l)).toList();
   }
 
   @Override
