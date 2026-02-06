@@ -11,6 +11,7 @@
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/domain/security/UsuarioAutenticadoService.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/domain/service/AlunoCsvReader.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/infrastructure/configuration/AlunoConfig.java
+/home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/infrastructure/configuration/OpenApiConfig.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/infrastructure/configuration/SecurityConfig.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/infrastructure/persistence/entity/AlunoEntity.java
 /home/carlos/Documents/Projetos/java-spring/Apialunos-ifms/src/main/java/br/edu/ifms/infrastructure/persistence/mapper/AlunoMapper.java

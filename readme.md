@@ -4,52 +4,61 @@ Esta é uma API RESTful robusta desenvolvida para gerenciar o processo de import
 
 ---
 
+## 📖 Documentação Interativa (Swagger)
+
+A API conta com documentação automática e interativa via **Swagger UI (OpenAPI 3)**. Através dela, é possível visualizar todos os modelos de dados e testar os endpoints diretamente pelo navegador.
+
+* **URL Local:** `http://localhost:8080/swagger-ui/index.html`
+* **URL Produção:** `https://apialunos-ifms-production.up.railway.app/swagger-ui/index.html`
+
+> **Nota:** Como a API utiliza **Basic Auth**, clique no botão **"Authorize"** no topo da página do Swagger e insira suas credenciais para liberar os testes nos endpoints.
+
+---
+
 ## 🏗️ Arquitetura do Projeto
 
-O projeto está organizado seguindo a separação de responsabilidades em camadas:
+O projeto segue uma estrutura desacoplada para facilitar a manutenção e escalabilidade:
 
-* **Domain (Domínio):** Contém as entidades principais (`AlunoModel`), interfaces de repositório e serviços. É o coração da aplicação.
-* **Application (Aplicação):** Onde residem os Casos de Uso (`ImportarAlunosCsvUseCase`, `ListarAlunosUseCase`), orquestrando a lógica de negócio.
-* **Infrastructure (Infraestrutura):** Implementações técnicas como persistência de dados (JPA), Mappers, configuração do Spring Security e adaptadores Web (Controllers).
+
+
+* **Domain (Domínio):** Onde reside o "Core" da aplicação: entidades principais (`AlunoModel`), interfaces de repositório e regras de negócio puras.
+* **Application (Aplicação):** Implementa os Casos de Uso (`ImportarAlunosCsvUseCase`, `ListarAlunosUseCase`), mediando a comunicação entre o mundo externo e o domínio.
+* **Infrastructure (Infraestrutura):** Contém os detalhes técnicos: persistência JPA (PostgreSQL), Mappers, segurança (Spring Security) e adaptadores Web (Controllers).
 
 ---
 
 ## 🚀 Tecnologias e Ferramentas
 
 * **Linguagem:** Java 21
-* **Framework:** Spring Boot 3+
-* **Segurança:** Spring Security (Autenticação Basic)
+* **Framework:** Spring Boot 3.4+
+* **Documentação:** SpringDoc OpenAPI 2.x (Swagger)
+* **Segurança:** Spring Security (Basic Auth)
 * **Persistência:** Spring Data JPA & PostgreSQL
 * **Leitura de Arquivos:** OpenCSV
-* **Produtividade:** Lombok & MapStruct (ou Mappers manuais)
 * **Deploy:** Railway
 
 ---
 
 ## 🛠️ Endpoints Disponíveis
 
-A URL base da aplicação em produção é:  
-`https://apialunos-ifms-production.up.railway.app/api/v1`
+A URL base em produção é: `https://apialunos-ifms-production.up.railway.app/api/v1`
 
 ### 1. Listar Alunos Cadastrados
-Retorna a lista completa de alunos presentes no banco de dados.
+Retorna a lista completa de alunos convertidos para o modelo de domínio.
 * **URL:** `/alunos/find`
 * **Método:** `GET`
-* **Autenticação:** Requer Basic Auth.
 
 ### 2. Importação Massiva via CSV
-Recebe um arquivo `.csv`, processa as linhas e salva no banco de dados.  
-**Regra de Negócio:** O sistema realiza uma verificação automática de duplicidade baseada no **e-mail institucional**. Se o aluno já existir, ele será ignorado no processamento.
+Recebe um arquivo `.csv` via `multipart/form-data`.
 * **URL:** `/alunos/import`
 * **Método:** `POST`
-* **Corpo:** `multipart/form-data`
-* **Parâmetro:** `arquivo` (tipo File)
+* **Regra de Negócio:** O sistema valida a existência do aluno via **e-mail institucional** antes de salvar, evitando registros duplicados mesmo em múltiplas execuções.
 
 ---
 
 ## 📊 Estrutura do Arquivo CSV
 
-O arquivo para importação deve conter as seguintes colunas (incluindo cabeçalho):
+Para garantir o sucesso da importação, o arquivo deve seguir este formato:
 
 | Coluna | Descrição |
 | :--- | :--- |
@@ -65,7 +74,6 @@ O arquivo para importação deve conter as seguintes colunas (incluindo cabeçal
 | **periodoEntrada** | Semestre/Ano de ingresso |
 | **turno** | Matutino, Vespertino ou Noturno |
 | **cep** | CEP de residência |
-
 ---
 
 ## ⚙️ Instalação e Execução Local
@@ -75,7 +83,7 @@ O arquivo para importação deve conter as seguintes colunas (incluindo cabeçal
     git clone [https://github.com/seu-usuario/apialunos-ifms.git](https://github.com/seu-usuario/apialunos-ifms.git)
     ```
 2.  **Configuração de Banco de Dados:**
-    Ajuste as propriedades de conexão no arquivo `src/main/resources/application.properties`.
+    Ajuste as propriedades de conexão (PostgreSQL ou H2) no arquivo `src/main/resources/application.properties`.
 3.  **Execução:**
     ```bash
     mvn spring-boot:run
@@ -85,8 +93,8 @@ O arquivo para importação deve conter as seguintes colunas (incluindo cabeçal
 
 ## 🔒 Segurança
 
-A API está protegida com **Basic Auth**. Para realizar requisições via Postman ou cURL, certifique-se de configurar o usuário e senha definidos no seu `application.properties` ou gerados pelo Spring Security no log de inicialização.
+A segurança é implementada via **Basic Authentication**. Em ambiente de produção, certifique-se de enviar o Header `Authorization` com as credenciais codificadas em Base64.
 
 ---
 
-Desenvolvido com ☕ por Carlos Welliton
+Desenvolvido com ☕ por **Carlos Welliton**
