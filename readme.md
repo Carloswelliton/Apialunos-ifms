@@ -80,7 +80,7 @@ Para garantir o sucesso da importação, o arquivo deve seguir este formato:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/apialunos-ifms.git](https://github.com/seu-usuario/apialunos-ifms.git)
+    git clone [https://github.com/Carloswelliton/apialunos-ifms.git](https://github.com/Carloswelliton/apialunos-ifms.git)
     ```
 2.  **Configuração de Banco de Dados:**
     Ajuste as propriedades de conexão (PostgreSQL ou H2) no arquivo `src/main/resources/application.properties`.
